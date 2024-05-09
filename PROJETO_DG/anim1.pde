@@ -1,8 +1,8 @@
 
 int[] rect_X = new int[5];
-int[] rect_Y = new int[5]; // Array to store y-coordinates for each box
+int[] rect_Y = new int[5];
 
-int targetRectIndex = 0; // Index of the current target rectangle
+int targetRectIndex = 0; 
 boolean triangleMoving = false; 
 float triangleX;
 float triangleY;
@@ -16,13 +16,12 @@ void carregaranim1() {
     rect_X[i] = int(random(0, width * 2 - 40)); 
   }
   
-  // Generate static y-coordinates for the boxes
   for (int i = 0; i < 5; i++) {
-    rect_Y[i] = 750; // Set to a static y-coordinate
+    rect_Y[i] = 750;
   }
 
-  // Set initial position of the triangle to be outside the screen
-  triangleX = -100;
+  // posiciona a posicao inicial do triangulo
+  triangleX = width/2;
   triangleY = height / 2;
 }
 
@@ -42,42 +41,40 @@ void anim1() {
   noStroke();
   rect(0, 550, width * 2, 500);
 
-  // Draw the boxes using the static positions
   for (int i = 0; i < 5; i++) {
     fill(0);
     stroke(10);
     rect(rect_X[i] + 100, rect_Y[i], 40, 40);
   }
 
-  // Move the triangle towards the current target rectangle
+  //move o triangulo contra o retangulo atual
   if (triangleMoving) {
     float targetX = rect_X[targetRectIndex] + 120; // X-coordinate of the center of the target rectangle
     float targetY = rect_Y[targetRectIndex] + 20; // Y-coordinate of the center of the target rectangle
     
-    // Calculate the distance and direction to move the triangle
+    // calcula a distancia e direcao para mover o triangulo
     float dx = targetX - triangleX;
     float dy = targetY - triangleY;
     
-    // Move the triangle a fraction of the distance towards the target each frame
-    float speed = 2; // Adjust speed as needed
+    // move o triangulo uma fracao da distancia em direcao a caixa em cada frame
+    float speed = 2; 
     triangleX += dx * speed / dist(triangleX, triangleY, targetX, targetY);
     triangleY += dy * speed / dist(triangleX, triangleY, targetX, targetY);
     
-    // Check if the triangle has reached the target rectangle
+    // confirma se o triangulo chegou ao retangulo
     if (dist(triangleX, triangleY, targetX, targetY) < 1) {
       triangleMoving = false;
-      targetRectIndex++; // Move to the next target rectangle
+      targetRectIndex++; // move se para a proxima caixa
       if (targetRectIndex >= 5) {
-        // Reset to the first rectangle if all rectangles have been visited
+        // volta ao primeiro se ja tiver passado por todos
         targetRectIndex = 0;
       }
     }
   } else {
-    // Trigger the movement towards the next rectangle
+    // da trigger ao movimento para a proxima caixa
     triangleMoving = true;
   }
 
-  // Draw the moving triangle
   fill(0);
   noStroke();
   beginShape(TRIANGLES);
