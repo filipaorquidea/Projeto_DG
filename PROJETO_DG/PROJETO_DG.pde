@@ -3,6 +3,8 @@ float rectX, rectY;
 float rectSize;
 float circleX;
 
+boolean carrega = false;
+
 void setup() {
   size(1000, 800);
 
@@ -17,30 +19,47 @@ void setup() {
 
 void draw() {
   background(255);
-
-
-  circleX = (circleX + 2) % width;
-
-  if (rectSize > 0) {
-    rectSize -= 1;
-  } else {
-    rectSize = 500;
-  }
   
-
-  if (rectY <= rectSize / 2) {
-    rectY = height - 310;
-  } else {
-    rectY -= 0.5;
-  }
-
-
-
-  fill(200);
-  noStroke();
-  rect(rectX, rectY, rectSize, rectSize);
-
-  fill(255, 200, 0);
-  noStroke();
-  ellipse(circleX, 50, 70, 70);
+  // Generate a random number between 0 and 11
+  //int randomNum = int(random(0, 12));
+  
+  // Choose animation based on the random number
+  //switch(randomNum) {
+    //case 0:
+      anim1();
+      //break;
+    //case 1:
+     /*    anim2();
+      break;
+    case 2:
+   anim3();
+      break;
+    case 3:
+      anim4();
+      break;
+    case 4:
+      anim5();
+      break;
+    case 5:
+      anim6();
+      break;
+    case 6:
+      anim7();
+      break;
+    case 7:
+      anim8();
+      break;
+    case 8:
+      anim9();
+      break;
+    case 9:
+      anim10();
+      break;
+    case 10:
+      anim11();
+      break;
+    case 11:
+      anim12();
+      break;*/
+  //}
 }
