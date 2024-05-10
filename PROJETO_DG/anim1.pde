@@ -1,4 +1,4 @@
-
+/*
 int[] rect_X = new int[5];
 int[] rect_Y = new int[5];
 
@@ -82,4 +82,4 @@ void anim1() {
   vertex(triangleX + 100, triangleY + 200);
   vertex(triangleX + 200, triangleY - 50);
   endShape();
-}
+}*/

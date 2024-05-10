@@ -1,10 +1,10 @@
-void carregaranim3() {
+void carregarelements() {
   carrega = true;
 }
 
-void anim3() {
+void elements() {
   if (!carrega) {
-    carregaranim3();
+    carregarelements();
   }
 
 
@@ -21,16 +21,6 @@ void anim3() {
   noStroke();
   rect(rectX, rectY, rectSize, rectSize);
 
-  //sol
-  fill(255, 200, 0);
-  noStroke();
-  ellipse(circleX, 50, 70, 70);
-  
-  
-    //sol
-  circleX = (circleX + 2) % width;
-
-  //carrinha
   if (rectSize > 0) {
     rectSize -= 1;
   } else {
@@ -42,5 +32,13 @@ void anim3() {
   } else {
     rectY -= 0.5;
   }
-  
+
+  //sol
+  fill(255, 200, 0);
+  noStroke();
+  ellipse(circleX, 50, 70, 70);
+
+  /*if((circleX = (circleX + 2) % width) || (circleX = (circleX - 2) % width)){
+   random(circleX);
+   }*/
 }
