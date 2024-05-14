@@ -1,7 +1,10 @@
 
 float rectX, rectY;
 float rectSize;
+float circleSize;
 float circleX;
+int circleDirection = 1;
+int rectDirection = 1;
 
 boolean carrega = false;
 
@@ -11,10 +14,9 @@ void setup() {
   rectMode(CENTER);
   ellipseMode(CENTER);
 
-  rectX = width/2;
-  rectY = height - 310;
-  rectSize = 500;
-  circleX = 50;
+  circleDirection = random(1) < 0.5 ? 1 : -1;
+
+  rectDirection = int(random(1, 4));
 }
 
 void draw() {
