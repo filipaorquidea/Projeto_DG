@@ -3,7 +3,7 @@ void carregarelements() {
   carrega = true;
 
   rectX = width/2;
-  rectY = height - 310;
+  rectY = height - 300;
   rectSize = 200;
   circleSize = 50;
   circleX = 50;
@@ -37,15 +37,12 @@ void elements() {
   rect(rectX, rectY, rectSize, rectSize);
 
   if (rectDirection == 1) {
-    if (rectSize > 0) {
+    if (rectSize > minRectSize) {
       rectSize -= 1;
+      rectY -= 0.5;
     } else {
-      rectSize = 200;
-    }
-    if (rectY <= rectSize / 2) {
-      rectY = height - 310;
-    } else {
-      rectY -= 1.5;
+      rectSize = 500;
+      rectY = height - 300;
     }
   } else if (rectDirection == 2) {
     rectX += 2;

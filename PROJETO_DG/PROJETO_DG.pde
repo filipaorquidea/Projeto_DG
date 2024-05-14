@@ -3,6 +3,7 @@ float rectX, rectY;
 float rectSize;
 float circleSize;
 float circleX;
+int minRectSize = 50;
 int circleDirection = 1;
 int rectDirection = 1;
 
