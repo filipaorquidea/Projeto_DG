@@ -1,6 +1,11 @@
+//chão, céu e sol
+
+//sol
+float angulo= 180;
+float raio = width//9;
+
 void carregarelements() {
   carrega = true;
-
 
   circleSize = 50;
   circleX = 50;
@@ -22,7 +27,6 @@ void elements() {
   rect(0, 550, width * 2, 500);
 
   //sol
-
   if (circleColor == 1) {
     fill(255, 0, 0);
   } else if (circleColor == 2) {
@@ -30,6 +34,7 @@ void elements() {
   } else if (circleColor == 3) {
     fill(0, 0, 255);
   }
+  
   noStroke();
   ellipse(circleX, 50, 70, 70);
 
