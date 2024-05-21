@@ -1,21 +1,11 @@
-
 void carregarelements() {
   carrega = true;
 
-  rectX = width/2;
-  rectY = height - 300;
-  rectSize = 200;
+
   circleSize = 50;
   circleX = 50;
 
   circleX = (circleDirection == 1) ? -circleSize / 2 : width + circleSize / 2;
-  if (rectDirection == 2) {
-    rectX = -rectSize / 2;
-  } else if (rectDirection == 3) {
-    rectX = width + rectSize / 2;
-  } else {
-    rectX = width / 2;
-  }
 }
 
 void elements() {
@@ -31,33 +21,15 @@ void elements() {
   fill(200, 170, 100);
   rect(0, 550, width * 2, 500);
 
-  //carrinha
-  fill(230);
-  noStroke();
-  rect(rectX, rectY, rectSize, rectSize);
-
-  if (rectDirection == 1) {
-    if (rectSize > minRectSize) {
-      rectSize -= 1;
-      rectY -= 0.5;
-    } else {
-      rectSize = 500;
-      rectY = height - 300;
-    }
-  } else if (rectDirection == 2) {
-    rectX += 2;
-    if (rectX - rectSize / 2 >= width) {
-      rectX = -rectSize / 2;
-    }
-  } else if (rectDirection == 3) {
-    rectX -= 2;
-    if (rectX + rectSize / 2 <= 0) {
-      rectX = width + rectSize / 2;
-    }
-  }
-
   //sol
-  fill(255, 220, 100);
+
+  if (circleColor == 1) {
+    fill(255, 0, 0);
+  } else if (circleColor == 2) {
+    fill(0, 255, 0);
+  } else if (circleColor == 3) {
+    fill(0, 0, 255);
+  }
   noStroke();
   ellipse(circleX, 50, 70, 70);
 
