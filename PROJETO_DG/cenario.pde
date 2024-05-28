@@ -1,52 +1,48 @@
-//chão, céu e sol
 
-//sol
-float angulo= 180;
-float raio = width//9;
+class Cenario {
+  float circleX;
+  int circleSize = 50;
+  int circleDirection;
+  int solColor;
 
-void carregarelements() {
-  carrega = true;
+  Cenario(int startDirection) {
+    circleDirection = startDirection;
 
-  circleSize = 50;
-  circleX = 50;
+    solColor = int(random(1, 4));
 
-  circleX = (circleDirection == 1) ? -circleSize / 2 : width + circleSize / 2;
-}
-
-void elements() {
-  if (!carrega) {
-    carregarelements();
+    circleX = (circleDirection == 1) ? -circleSize / 2 : width + circleSize / 2;
   }
 
-  //ceu
-  fill(150, 230, 255);
-  rect(0, 150, width * 2, 300);
+  void update() {
 
-  //chão
-  fill(200, 170, 100);
-  rect(0, 550, width * 2, 500);
+    circleX += 2 * circleDirection;
 
-  //sol
-  if (circleColor == 1) {
-    fill(255, 0, 0);
-  } else if (circleColor == 2) {
-    fill(0, 255, 0);
-  } else if (circleColor == 3) {
-    fill(0, 0, 255);
-  }
-  
-  noStroke();
-  ellipse(circleX, 50, 70, 70);
-
-  circleX += 2 * circleDirection;
-
-  if (circleDirection == 1) {
-    if (circleX - circleSize / 2 >= width) {
+    if (circleDirection == 1 && circleX > width + circleSize / 2) {
       circleX = -circleSize / 2;
-    }
-  } else {
-    if (circleX + circleSize / 2 <= 0) {
+    } else if (circleDirection == -1 && circleX < -circleSize / 2) {
       circleX = width + circleSize / 2;
     }
+
+    if (solColor == 1) {
+      fill(255, 0, 0);
+    } else if (solColor == 2) {
+      fill(0, 255, 0);
+    } else if (solColor == 3) {
+      fill(0, 0, 255);
+    }
+  }
+
+  void display() {
+    // Céu
+    fill(150, 230, 255);
+    rect(0, 0, width * 2, 300);
+
+    //sol
+    noStroke();
+    ellipse(circleX, 50, 70, 70);
+
+    // Chão
+    fill(200, 170, 100, 150);
+    rect(0, 300, width * 2, 600);
   }
 }
