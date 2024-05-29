@@ -2,6 +2,7 @@
 Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;
+FlowField flowField;
 
 void setup() {
   size(1280, 720);
@@ -9,13 +10,15 @@ void setup() {
   frameRate(30);
 
   int startDirection = int(random(1, 3));
-  
   cenario = new Cenario(startDirection);
 
   int rectDirection = int(random(1, 5));
   carrinha = new Carrinha(rectDirection);
 
-  personagem = new Personagem((random(1) < 0.5 ? -35 : width + 35), random(1) < 0.5 ? 1 : -1);
+  int personmove = int(random(1, 4));
+  personagem = new Personagem(personmove);
+
+  flowField = new FlowField(20, 300, height);
 }
 
 void draw() {
@@ -25,12 +28,9 @@ void draw() {
 
   cenario.update();
   cenario.display();
+  //flowField.drawContinuousLine();
   carrinha.update();
   carrinha.display();
   personagem.update();
   personagem.display();
-}
-
-void randomizeMovement() {
-  personagem.randomizeDirection();
 }

@@ -1,48 +1,73 @@
-
 class Cenario {
   float circleX;
   int circleSize = 50;
   int circleDirection;
   int solColor;
+  int ceuColor;
+  int chaoColor;
 
   Cenario(int startDirection) {
+    noFill();
     circleDirection = startDirection;
 
     solColor = int(random(1, 4));
+    ceuColor = int(random(1, 4));
+    chaoColor = int(random(1, 4));
 
-    circleX = (circleDirection == 1) ? -circleSize / 2 : width + circleSize / 2;
+    if (circleDirection == 1) {
+      circleX = -circleSize / 2;
+    } else if (circleDirection == 2) {
+      circleX = width + circleSize / 2;
+    } else {
+      circleX = width / 2;
+    }
   }
 
   void update() {
 
-    circleX += 2 * circleDirection;
-
-    if (circleDirection == 1 && circleX > width + circleSize / 2) {
-      circleX = -circleSize / 2;
-    } else if (circleDirection == -1 && circleX < -circleSize / 2) {
-      circleX = width + circleSize / 2;
-    }
-
-    if (solColor == 1) {
-      fill(255, 0, 0);
-    } else if (solColor == 2) {
-      fill(0, 255, 0);
-    } else if (solColor == 3) {
-      fill(0, 0, 255);
+    if (circleDirection == 1) {
+      circleX += 2;
+      if (circleX > width + circleSize / 2) {
+        circleX = -circleSize / 2;
+      }
+    } else if (circleDirection == 2) {
+      circleX -= 2;
+      if (circleX < -circleSize / 2) {
+        circleX = width + circleSize / 2;
+      }
     }
   }
 
   void display() {
+    noStroke();
     // Céu
-    fill(150, 230, 255);
+    if (ceuColor == 1) {
+      fill(25, 180, 250);
+    } else if (ceuColor == 2) {
+      fill(18, 11, 82);
+    } else if (ceuColor == 3) {
+      fill(177, 235, 240);
+    }
     rect(0, 0, width * 2, 300);
 
-    //sol
-    noStroke();
+    // Sol
+    if (solColor == 1) {
+      fill(244, 245, 96);
+    } else if (solColor == 2) {
+      fill(216, 201, 57);
+    } else if (solColor == 3) {
+      fill(255);
+    }
     ellipse(circleX, 50, 70, 70);
 
     // Chão
-    fill(200, 170, 100, 150);
+    if (chaoColor == 1) {
+      fill(200, 170, 100);
+    } else if (chaoColor == 2) {
+      fill(124, 111, 67);
+    } else if (chaoColor == 3) {
+      fill(222, 204, 145);
+    }
     rect(0, 300, width * 2, 600);
   }
 }

@@ -63,6 +63,7 @@ class Carrinha {
   }
 
   void display() {
+    noStroke();
     fill(150);
     rect(rectX, rectY, rectSize, 50);
   }

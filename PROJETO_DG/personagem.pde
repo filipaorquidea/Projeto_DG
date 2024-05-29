@@ -2,17 +2,16 @@
 class Personagem {
   float x;
   int size = 70;
-  int direction;
+  int personmove;
 
-  Personagem(int startX, int startDirection) {
+  Personagem(int startX) {
     x = startX;
-    direction = startDirection;
   }
 
   void update() {
-    x += 2 * direction;
+    x += 2 * personmove;
 
-    if (direction == 1) {
+    if (personmove == 1) {
       if (x - size / 2 >= width) {
         x = -size / 2;
       }
@@ -24,12 +23,7 @@ class Personagem {
   }
 
   void display() {
-    fill(255, 200, 0);
-    noStroke();
-    ellipse(x, 50, size, size);
-  }
-
-  void randomizeDirection() {
-    direction = random(1) < 0.5 ? 1 : -1;
+    /*fill(255, 200, 0);
+    ellipse(x, 50, size, size);*/
   }
 }
