@@ -12,13 +12,13 @@ void setup() {
   int startDirection = int(random(1, 3));
   cenario = new Cenario(startDirection);
 
-  int rectDirection = int(random(1, 5));
-  carrinha = new Carrinha(rectDirection);
+  int rectMove = int(random(1, 6));
+  carrinha = new Carrinha(rectMove);
 
-  int personmove = int(random(1, 4));
+  int personmove = int(random(1, 6));
   personagem = new Personagem(personmove);
 
-  flowField = new FlowField(20, 300, height);
+  //flowField = new FlowField(20, 300, height);
 }
 
 void draw() {

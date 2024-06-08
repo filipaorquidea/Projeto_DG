@@ -2,42 +2,30 @@
 class Carrinha {
   int rectX, rectY;
   int rectSize;
-  int minRectSize = 50;
+  int minRectSize = 10;
   int rectDirection;
   int vanY = height/2;
-  boolean carrega;
 
-  Carrinha(int startDirection) {
-    rectDirection = startDirection;
-    carrega = false;
+  Carrinha(int rectMove) {
+    rectDirection = rectMove;
     carregarcarrinha();
   }
 
   void carregarcarrinha() {
-    carrega = true;
+ 
     rectY = height - 300;
-    rectSize = 100;
-
-    if (rectDirection == 2) {
-      rectX = -rectSize / 2;
-    } else if (rectDirection == 3) {
-      rectX = width + rectSize / 2;
-    } else {
-      rectX = width / 2;
-    }
+    rectSize = 200;
   }
 
   void update() {
-    if (!carrega) {
-      carregarcarrinha();
-    }
 
     if (rectDirection == 1) {
+      rectX = width/2;
       if (rectSize > minRectSize) {
         rectSize -= 1;
         rectY -= 0.5;
       } else {
-        rectSize = 200;
+        rectSize = 300;
         rectY = height - 300;
       }
     } else if (rectDirection == 2) {
@@ -51,23 +39,21 @@ class Carrinha {
         rectX = width + rectSize / 2;
       }
     } else if (rectDirection == 4) {
+      rectX = width/2;
       for (int i = 0; i < 7; i++) {
-        int vanX = (frameCount * 2 + i * 180) % width;
+        int vanX = (frameCount + i * 180) % width;
         fill(150);
         rect(vanX - 50, vanY - 25, 100, 50);
         fill(0);
-        ellipse(vanX - 35, vanY + 25, 15, 15);
-        ellipse(vanX + 35, vanY + 25, 15, 15);
       }
+    } else if (rectDirection == 5) {
+      rectX = width/2;
     }
   }
 
   void display() {
     noStroke();
     fill(150);
-    rect(rectX, rectY, rectSize, 50);
-    fill(0);
-    ellipse(rectX + 15, rectX - 170, 15, 15);
-    ellipse(rectX + 85, rectX - 170, 15, 15);
+    rect(rectX, rectY, rectSize, rectSize/2);
   }
 }
