@@ -1,4 +1,4 @@
-
+ 
 Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;

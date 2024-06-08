@@ -23,7 +23,8 @@ class Personagem {
   }
 
   void display() {
-    /*fill(255, 200, 0);
-    ellipse(x, 50, size, size);*/
+    stroke(1);
+    fill(227, 190, 210);
+    triangle(120, 520, 170, 420, 220, 520);
   }
 }

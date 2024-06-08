@@ -4,6 +4,7 @@ class Carrinha {
   int rectSize;
   int minRectSize = 50;
   int rectDirection;
+  int vanY = height/2;
   boolean carrega;
 
   Carrinha(int startDirection) {
@@ -50,7 +51,6 @@ class Carrinha {
         rectX = width + rectSize / 2;
       }
     } else if (rectDirection == 4) {
-      int vanY = height/2;
       for (int i = 0; i < 7; i++) {
         int vanX = (frameCount * 2 + i * 180) % width;
         fill(150);
@@ -66,5 +66,8 @@ class Carrinha {
     noStroke();
     fill(150);
     rect(rectX, rectY, rectSize, 50);
+    fill(0);
+    ellipse(rectX + 15, rectX - 170, 15, 15);
+    ellipse(rectX + 85, rectX - 170, 15, 15);
   }
 }
