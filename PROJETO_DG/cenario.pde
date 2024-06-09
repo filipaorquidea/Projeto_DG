@@ -6,6 +6,7 @@ class Cenario {
   int ceuColor;
   int chaoColor;
 
+
   Cenario(int startDirection) {
     noFill();
     circleDirection = startDirection;
@@ -24,7 +25,7 @@ class Cenario {
   }
 
   void update() {
-
+    //movimento do sol
     if (circleDirection == 1) {
       circleX += 2;
       if (circleX > width + circleSize / 2) {
@@ -64,10 +65,27 @@ class Cenario {
     if (chaoColor == 1) {
       fill(200, 170, 100);
     } else if (chaoColor == 2) {
-      fill(124, 111, 67);
+      fill(108, 90, 44);
     } else if (chaoColor == 3) {
       fill(222, 204, 145);
     }
     rect(0, 300, width * 2, 600);
+
+    //cato
+    fill(51, 106, 33);
+    ellipse(165, 250, 30, 60);
+    rect(150, 250, 30, 50);
+    pushMatrix();
+    translate(-130, 190);
+    rotate(-PI/4);
+    ellipse(135, 250, 10, 30);
+    rect(130, 250, 10, 30);
+    popMatrix();
+    pushMatrix();
+    translate(235, -55);
+    rotate(PI/4);
+    ellipse(185, 250, 10, 30);
+    rect(180, 250, 10, 30);
+    popMatrix();
   }
 }

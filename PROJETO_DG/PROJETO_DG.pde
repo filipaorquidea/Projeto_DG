@@ -3,6 +3,7 @@ Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;
 FlowField flowField;
+String nomePastaOutput; 
 
 void setup() {
   size(1280, 720);
@@ -19,6 +20,8 @@ void setup() {
   personagem = new Personagem(personmove);
 
   //flowField = new FlowField(20, 300, height);
+  
+  nomePastaOutput = System.currentTimeMillis() + "";
 }
 
 void draw() {
@@ -33,4 +36,6 @@ void draw() {
   carrinha.display();
   personagem.update();
   personagem.display();
+  
+  //save(sketchPath("/animacao" + nomePastaOutput + "/" + nf(frameCount, 6) + ".png"));
 }
