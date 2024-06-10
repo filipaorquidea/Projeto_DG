@@ -84,7 +84,7 @@ class Personagem {
 
       if (!collision) {
         x -= 2;
-        if (x < 200) {
+        if (x + size/2 <= 200) {
           collision = true;
         }
       }
@@ -99,7 +99,6 @@ class Personagem {
       }
     }
   }
-
 
   void display() {
     stroke(1);

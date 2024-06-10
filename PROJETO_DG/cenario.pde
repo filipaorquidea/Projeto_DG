@@ -72,18 +72,40 @@ class Cenario {
     rect(0, 300, width * 2, 600);
 
     //cato
-    fill(51, 106, 33);
+    fill(17, 137, 25);
+    pushMatrix();
     ellipse(165, 250, 30, 60);
     rect(150, 250, 30, 50);
+    translate(350, 0);
+    ellipse(165, 250, 30, 60);
+    rect(150, 250, 30, 50);
+    translate(550, 0);
+    ellipse(165, 250, 30, 60);
+    rect(150, 250, 30, 50);
+    popMatrix();
+
     pushMatrix();
-    translate(-130, 190);
+    translate(- 130, 190);
     rotate(-PI/4);
     ellipse(135, 250, 10, 30);
     rect(130, 250, 10, 30);
+    translate(250, 240);
+    ellipse(135, 250, 10, 30);
+    rect(130, 250, 10, 30);
+    translate(390, 390);
+    ellipse(135, 250, 10, 30);
+    rect(130, 250, 10, 30);
     popMatrix();
+
     pushMatrix();
     translate(235, -55);
     rotate(PI/4);
+    ellipse(185, 250, 10, 30);
+    rect(180, 250, 10, 30);
+    translate(240, -250);
+    ellipse(185, 250, 10, 30);
+    rect(180, 250, 10, 30);
+    translate(390, -400);
     ellipse(185, 250, 10, 30);
     rect(180, 250, 10, 30);
     popMatrix();
