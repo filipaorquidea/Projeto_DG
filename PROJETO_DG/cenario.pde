@@ -27,19 +27,17 @@ class Cenario {
   void update() {
     //movimento do sol
     if (circleDirection == 1) {
-      circleX += 2;
+      circleX += 1;
       if (circleX > width + circleSize / 2) {
         circleX = -circleSize / 2;
       }
     } else if (circleDirection == 2) {
-      circleX -= 2;
+      circleX -= 1;
       if (circleX < -circleSize / 2) {
         circleX = width + circleSize / 2;
       }
     }
-  }
-
-  void display() {
+    
     noStroke();
     // Céu
     if (ceuColor == 1) {

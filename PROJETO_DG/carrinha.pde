@@ -2,7 +2,7 @@
 class Carrinha {
   int rectX, rectY;
   int rectSize;
-  int minRectSize = 10;
+  int minRectSize = 70;
   int rectDirection;
   int vanY = height/2;
 
@@ -32,22 +32,24 @@ class Carrinha {
       rectX = width/3 + 100;
       fill(150);
       rect(rectX, rectY, rectSize, rectSize);
-      if (rectSize > minRectSize) {
+      if (rectSize >= minRectSize) {
         rectSize -= 1;
         rectY -= 0.5;
       } else {
-        rectSize = 300;
+        rectSize = 250;
         rectY = height - 300;
       }
       //carrinha vai para a direita
     } else if (rectDirection == 2) {
-      rectX += 2;
+      rectY = height - 400;
+      rectX += 3;
       if (rectX - rectSize / 2 >= width) {
         rectX = -rectSize / 2;
       }
       //carrinha vai para a esquerda
     } else if (rectDirection == 3) {
-      rectX -= 2;
+      rectY = height - 400;
+      rectX -= 3;
       if (rectX + rectSize / 2 <= 0) {
         rectX = width + rectSize / 2;
       }
@@ -64,9 +66,7 @@ class Carrinha {
     } else if (rectDirection == 5) {
       rectX = width/2 - 100;
     }
-  }
 
-  void display() {
     noStroke();
     fill(150);
     rect(rectX, rectY, rectSize, rectSize/2);

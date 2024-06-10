@@ -4,6 +4,7 @@ class Personagem {
   int personmove;
   float x2;
   boolean collision = false;
+  boolean started = false;
 
   Personagem(int startX) {
     personmove = startX;
@@ -83,24 +84,55 @@ class Personagem {
       triangle(270, 650, 295, 600, 320, 650);
 
       if (!collision) {
-        x -= 2;
-        if (x + size/2 <= 200) {
-          collision = true;
+        if (!started) {
+          x = width; // Começa à direita
+          started = true; // Marca como iniciado
+        } else {
+          x -= 2; // Movimento da direita para a esquerda
+        }
+        if (x + size / 2 <= 400) {
+          collision = true; // Para quando colidir com a casa
         }
       }
       //comunidade
     } else if (personmove == 5) {
-      for (int i = 0; i < 5; i++) {
-        int x = (frameCount + i * 180) % width;
+      int numCharacters1 = 4;
+      int numCharacters2 = 4;
+
+      float radius1 = 50;
+      float radius2 = 50;
+
+      float centerX1 = width / 3;
+      float centerY1 = height / 2;
+
+      float centerX2 = 2 * width / 3;
+      float centerY2 = height / 2;
+
+      // Primeiro círculo com 4 personagens
+      for (int i = 0; i < numCharacters1; i++) {
+        float angle = TWO_PI / numCharacters1 * i;
+        float x = centerX1 + cos(angle) * radius1;
+        float y = centerY1 + sin(angle) * radius1;
+
         stroke(1);
         fill(227, 190, 210);
-        ellipse(x + 25, y + 590, 15, 15);
-        triangle(x, y + 650, x + 25, y + 600, x + 50, y + 650);
+        ellipse(x, y + 170, 15, 15);
+        triangle(x - 25, y + 230, x, y + 180, x + 25, y + 230);
       }
-    }
-  }
 
-  void display() {
+      // Segundo círculo com 3 personagens
+      for (int i = 0; i < numCharacters2; i++) {
+        float angle = TWO_PI / numCharacters2 * i;
+        float x = centerX2 + cos(angle) * radius2;
+        float y = centerY2 + sin(angle) * radius2;
+
+        stroke(1);
+        fill(227, 190, 210);
+        ellipse(x, y + 170, 15, 15);
+        triangle(x - 25, y + 230, x, y + 180, x + 25, y + 230);
+      }
+      x = -300;
+    }
     stroke(1);
     fill(227, 190, 210);
     ellipse(x + 25, 590, 15, 15);

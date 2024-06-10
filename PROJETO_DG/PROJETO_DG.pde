@@ -30,12 +30,9 @@ void draw() {
   frameCount++;
 
   cenario.update();
-  cenario.display();
   //flowField.drawContinuousLine();
   carrinha.update();
-  carrinha.display();
   personagem.update();
-  personagem.display();
   
   //save(sketchPath("/animacao" + nomePastaOutput + "/" + nf(frameCount, 6) + ".png"));
 }
