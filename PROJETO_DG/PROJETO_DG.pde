@@ -5,19 +5,21 @@ Personagem personagem;
 String nomePastaOutput;
 int cenarioRandom;
 
+int totalFrames = 600;
+int currentFrame = 0;
+
 PImage chaodia, chaomadrug, chaonoite, chaopor;
 PImage carrinhaNoite, carrinhaMadrug, carrinhaDia, carrinhaPor;
 PImage carrinhaNoiteInv, carrinhaMadrugInv, carrinhaDiaInv, carrinhaPorInv; 
 PImage trasNoite, trasMadrug, trasDia;
 PImage catoNoite, catoDia;
 PImage persoDia, persoNoite, persoMadrug;
-//PShape chao, sombra;
 
 void setup() {
   size(1280, 720);
+  
+  frameRate(30);
 
-  /*chao = loadShape("dunas.svg");
-   sombra = loadShape("sombra.svg");*/
 
   chaodia = loadImage("chaodia.png");
   chaomadrug = loadImage("chaomadrugada.png");
@@ -45,8 +47,6 @@ void setup() {
   persoNoite = loadImage("persoNoite.png");
   persoMadrug = loadImage("persoMadru.png");
 
-  frameRate(30);
-
   cenarioRandom = int(random(1, 5));
   print(cenarioRandom);
 
@@ -65,12 +65,16 @@ void setup() {
 void draw() {
   background(255);
 
-
-  frameCount++;
-
   cenario.update();
   carrinha.update();
   personagem.update();
+  
+   if (currentFrame >= totalFrames) {
+    exit();
+  }
 
-  //save(sketchPath("/animacao" + nomePastaOutput + "/" + nf(frameCount, 6) + ".png"));
+  save(sketchPath("/animacao" + nomePastaOutput + "/" + nf(currentFrame, 6) + ".png"));
+
+  currentFrame++;
+  
 }

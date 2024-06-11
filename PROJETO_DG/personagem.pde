@@ -25,7 +25,7 @@ class Personagem {
   }
 
   void update() {
-    //a personagem encontra se com a amiga
+
     if (horario == 1) {
       pessoa = persoNoite;
       corEscura = color(94, 78, 73);
@@ -44,44 +44,22 @@ class Personagem {
       corFundo = color(232, 205, 195);
     }
 
-    image(pessoa, x2, 550, largura, altura);
-
-    if (!collision) {
-      x += 2;
-
-      if (x - size / 2 >= width) {
-
-        x = -size / 2;
-      }
-
-      x2 -= 2;
-
-      if (x2 + size / 2 <= 0) {
-
-        x2 = width + size / 2;
-      }
-
-      if (dist(x + 75, 470, x2 + 30, 470) < size) {
-
-        collision = true;
-      }
-    }
-
     if (personmove == 1) {
-
+      //a personagem encontra se com a amiga
       image(pessoa, x2, 550, largura, altura);
       if (!collision) {
         x += 2;
         if (x - size / 2 >= width) {
           x = -size / 2;
-        } else if (x2 + size / 2 <= 0) {
+        }
+        x2 -= 2;
+        if (x2 + size / 2 <= 0) {
           x2 = width + size / 2;
-        } else if (dist(x + 75, 470, x2 + 30, 470) < size) {
+        }
+        if (dist(x + 75, 470, x2 + 30, 470) < size) {
           collision = true;
         }
       }
-
-      
     } else if (personmove == 2) {
 
       image(pessoa, 150, 550, largura, altura);
