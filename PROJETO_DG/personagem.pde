@@ -18,7 +18,7 @@ class Personagem {
     //a personagem encontra se com a amiga
     if (personmove == 1) {
 
-      image(persoDia, x2, 590, largura, altura);
+      image(persoDia, x2, 550, largura, altura);
       if (!collision) {
         x += 2;
 
@@ -34,7 +34,7 @@ class Personagem {
           x2 = width + size / 2;
         }
 
-        if (dist(x + 80, 470, x2 + 25, 470) < size) {
+        if (dist(x + 75, 470, x2 + 30, 470) < size) {
 
           collision = true;
         }
@@ -42,25 +42,25 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
-      image(persoDia, x + 225, 590, largura, altura);
+      image(persoDia, 225, 550, largura, altura);
 
       //personagem muda se para a casa do amigo
     } else if (personmove == 3) {
 
       fill(255, 0, 0);
-      triangle(980, 500, 1100, 400, 1220, 500);
-      fill(150);
-      rect(1000, 500, 200, 150);
+      triangle(780, 500, 900, 400, 1020, 500);
+      fill(200);
+      rect(800, 500, 200, 150);
 
       stroke(1);
       fill(0, 0, 255);
-      image(persoDia, x + 100, 590, largura, altura);
+      image(persoDia, x + 100, 550, largura, altura);
 
 
 
       if (!collision) {
         x += 2;
-        if (x + size / 2 >= 1000 && x - size / 2 <= 1200) {
+        if (x + size / 2 >= 850 && x - size / 2 <= 1000) {
           collision = true;
         }
       }
@@ -69,17 +69,13 @@ class Personagem {
     } else if (personmove == 4) {
       fill(255, 0, 0);
       triangle(180, 500, 300, 400, 420, 500);
-      fill(150);
+      fill(200);
       rect(200, 500, 200, 150);
 
-      stroke(1);
-      fill(0, 255, 0);
-      ellipse(235, 590, 15, 15);
-      triangle(210, 650, 235, 600, 260, 650);
 
-      fill(178, 57, 152);
-      ellipse(295, 590, 15, 15);
-      triangle(270, 650, 295, 600, 320, 650);
+      image(persoDia, 210, 550, largura, altura);
+
+      image(persoDia, 240, 550, largura, altura);
 
       if (!collision) {
         if (!started) {
@@ -112,7 +108,7 @@ class Personagem {
         float x = centerX1 + cos(angle) * radius1;
         float y = centerY1 + sin(angle) * radius1;
 
-        image(persoDia, x, y + 170, largura, altura);
+        image(persoDia, x, y + 180, largura, altura);
       }
 
       // Segundo círculo com 3 personagens
@@ -122,12 +118,11 @@ class Personagem {
         float y = centerY2 + sin(angle) * radius2;
 
 
-        image(persoDia, x, y + 170, largura, altura);
+        image(persoDia, x, y + 180, largura, altura);
       }
       x = -300;
     }
 
-    image(persoDia, x + 25, 590, largura, altura);
-
+    image(persoDia, x + 25, 550, largura, altura);
   }
 }

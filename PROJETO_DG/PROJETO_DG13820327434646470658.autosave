@@ -1,45 +1,26 @@
 Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;
+FlowField flowField;
 
 String nomePastaOutput;
 int cenarioRandom;
 
 PImage chaodia, chaomadrug, chaonoite, chaopor;
-PImage carrinhaNoite, carrinhaMadrug, carrinhaDia, carrinhaPor;
-PImage trasNoite, trasMadrug, trasDia;
-PImage catoNoite, catoDia;
-PImage persoDia, persoNoite, persoMadrug;
-//PShape chao, sombra;
+PShape chao, sombra;
 
 void setup() {
   size(1280, 720);
-
-  /*chao = loadShape("dunas.svg");
-   sombra = loadShape("sombra.svg");*/
-
+  
+  chao = loadShape("dunas.png");
+  sombra = loadShape("sombra.png");
+  
   chaodia = loadImage("chaodia.png");
   chaomadrug = loadImage("chaomadrugada.png");
   chaonoite = loadImage("chaonoite.png");
-  chaopor = loadImage("chaodia.png");
+  chaopor = loadImage("chaopordosol.png");
 
-  carrinhaNoite = loadImage("carrinhanoite.png");
-  carrinhaMadrug = loadImage("carrinhamadrugada.png");
-  carrinhaDia = loadImage("carrinhadia.png");
-  carrinhaPor = loadImage("carrinhapor.png");
-
-  trasNoite = loadImage("trasnoite.png");
-  trasMadrug = loadImage("trasmadrug.png");
-  trasDia = loadImage("trasdia.png");
-  
-  catoNoite = loadImage("catonoite.png");
-  catoDia = loadImage("catodia.png");
-  
-  persoDia = loadImage("persoDia.png");
-  persoNoite = loadImage("persoNoite.png");
-  persoMadrug = loadImage("persoMadru.png");
-
-    //frameRate(30);
+  frameRate(30);
 
   cenarioRandom = int(random(1, 4));
   print(cenarioRandom);
@@ -53,6 +34,8 @@ void setup() {
   int personmove = int(random(1, 6));
   personagem = new Personagem(personmove);
 
+  //flowField = new FlowField(20, 300, height);
+
   nomePastaOutput = System.currentTimeMillis() + "";
 }
 
@@ -63,6 +46,7 @@ void draw() {
   frameCount++;
 
   cenario.update();
+  //flowField.drawContinuousLine();
   carrinha.update();
   personagem.update();
 
