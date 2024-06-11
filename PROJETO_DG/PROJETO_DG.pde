@@ -1,14 +1,17 @@
- 
 Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;
 FlowField flowField;
-String nomePastaOutput; 
+String nomePastaOutput;
+int cenarioRandom;
 
 void setup() {
   size(1280, 720);
 
   frameRate(30);
+
+  cenarioRandom = int(random(1, 4));
+  print(cenarioRandom);
 
   int startDirection = int(random(1, 3));
   cenario = new Cenario(startDirection);
@@ -20,12 +23,13 @@ void setup() {
   personagem = new Personagem(personmove);
 
   //flowField = new FlowField(20, 300, height);
-  
+
   nomePastaOutput = System.currentTimeMillis() + "";
 }
 
 void draw() {
   background(255);
+
 
   frameCount++;
 
@@ -33,6 +37,6 @@ void draw() {
   //flowField.drawContinuousLine();
   carrinha.update();
   personagem.update();
-  
+
   //save(sketchPath("/animacao" + nomePastaOutput + "/" + nf(frameCount, 6) + ".png"));
 }

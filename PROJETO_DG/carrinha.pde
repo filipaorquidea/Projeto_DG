@@ -27,6 +27,7 @@ class Carrinha {
   }
 
   void update() {
+    
     //carrinha a diminuir o size
     if (rectDirection == 1) {
       rectX = width/3 + 100;
@@ -53,6 +54,8 @@ class Carrinha {
       if (rectX + rectSize / 2 <= 0) {
         rectX = width + rectSize / 2;
       }
+      
+      
       //comunidade de carrinhas
     } else if (rectDirection == 4) {
       rectX = width/2 - 100;

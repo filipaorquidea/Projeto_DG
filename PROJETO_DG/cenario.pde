@@ -11,9 +11,9 @@ class Cenario {
     noFill();
     circleDirection = startDirection;
 
-    solColor = int(random(1, 4));
-    ceuColor = int(random(1, 4));
-    chaoColor = int(random(1, 4));
+    solColor = cenarioRandom;
+    ceuColor = cenarioRandom;
+    chaoColor = cenarioRandom;
 
     if (circleDirection == 1) {
       circleX = -circleSize / 2;
@@ -37,37 +37,73 @@ class Cenario {
         circleX = width + circleSize / 2;
       }
     }
-    
+
     noStroke();
     // Céu
-    if (ceuColor == 1) {
-      fill(25, 180, 250);
-    } else if (ceuColor == 2) {
-      fill(18, 11, 82);
-    } else if (ceuColor == 3) {
-      fill(177, 235, 240);
-    }
-    rect(0, 0, width * 2, 300);
+    color c1, c2;
 
-    // Sol
-    if (solColor == 1) {
-      fill(244, 245, 96);
-    } else if (solColor == 2) {
-      fill(216, 201, 57);
-    } else if (solColor == 3) {
-      fill(255);
+    if (ceuColor == 1) {
+      // noite
+      c1 = color(44, 89, 132); 
+      c2 = color(42, 105, 133); 
+    } else if (ceuColor == 2) {
+      // madrugada
+      c1 = color(65, 168, 188); 
+      c2 = color(189, 195, 183); 
+    } else if (ceuColor == 3) {
+      // dia
+      c1 = color(159, 205, 231);
+      c2 = color(198, 196, 184); 
+    } else if (ceuColor == 4) {
+      // por do sol
+      c1 = color(106, 136, 171); 
+      c2 = color(191, 183, 203); 
+    } else {
+      return; // Se ceuColor não for 1, 2, 3 ou 4, não faz nada
     }
+
+    for (int y = 0; y <= height/2; y++) { 
+      float inter = map(y, 0, height/2, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      noFill();
+      stroke(c);
+      line(0, y, width, y);
+    }
+
+     // Sol
+    noStroke();
+    if (solColor == 1) {
+      //noite lua
+      fill(139, 139, 140);
+    } else if (solColor == 2) {
+      //madrugada
+      fill(238, 223, 192);
+    } else if (solColor == 3) {
+      //dia
+      fill(244, 242, 194);
+    } else if (solColor == 4) {
+      //por do sol
+      fill(226, 199, 161);
+    }
+
     ellipse(circleX, 50, 70, 70);
 
     // Chão
     if (chaoColor == 1) {
-      fill(200, 170, 100);
+      //noite
+      fill(91, 67, 60);
     } else if (chaoColor == 2) {
-      fill(108, 90, 44);
+      //madrugada
+      fill(186, 124, 69);
     } else if (chaoColor == 3) {
-      fill(222, 204, 145);
+      //dia
+      fill(245, 143, 53);
+    } else if (chaoColor == 4) {
+      //por do sol
+      fill(186, 124, 69);
     }
     rect(0, 300, width * 2, 600);
+
 
     //cato
     fill(17, 137, 25);
