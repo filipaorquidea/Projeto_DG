@@ -45,7 +45,7 @@ void setup() {
   persoNoite = loadImage("persoNoite.png");
   persoMadrug = loadImage("persoMadru.png");
 
-  //frameRate(30);
+  frameRate(30);
 
   cenarioRandom = int(random(1, 5));
   print(cenarioRandom);
