@@ -45,12 +45,12 @@ void setup() {
   persoNoite = loadImage("persoNoite.png");
   persoMadrug = loadImage("persoMadru.png");
 
-  //frameRate(30);
+  frameRate(30);
 
   cenarioRandom = int(random(1, 5));
   print(cenarioRandom);
 
-  int startDirection = int(random(1, 3));
+  int startDirection = int(random(1, 2));
   cenario = new Cenario(startDirection);
 
   int rectMove = int(random(1, 6));
