@@ -2,11 +2,23 @@ Carrinha carrinha;
 Cenario cenario;
 Personagem personagem;
 FlowField flowField;
+
 String nomePastaOutput;
 int cenarioRandom;
 
+PImage chaodia, chaomadrug, chaonoite, chaopor;
+//PShape chao, sombra;
+
 void setup() {
   size(1280, 720);
+  
+  /*chao = loadShape("dunas.svg");
+  sombra = loadShape("sombra.svg");*/
+  
+  chaodia = loadImage("chaodia.svg");
+  chaomadrug = loadImage("chaomadrugada.svg");
+  chaonoite = loadImage("chaonoite.svg");
+  chaopor = loadImage("chaopordosol.svg");
 
   frameRate(30);
 
