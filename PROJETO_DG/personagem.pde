@@ -6,6 +6,9 @@ class Personagem {
   boolean collision = false;
   boolean started = false;
 
+  int largura = 20;
+  int altura = 100;
+
   Personagem(int startX) {
     personmove = startX;
     x2 = width + size / 2;
@@ -15,10 +18,7 @@ class Personagem {
     //a personagem encontra se com a amiga
     if (personmove == 1) {
 
-      stroke(1);
-      fill(255, 0, 0);
-      ellipse(x2 + 25, 590, 15, 15);
-      triangle(x2, 650, x2 + 25, 600, x2 + 50, 650);
+      image(persoDia, x2, 590, largura, altura);
       if (!collision) {
         x += 2;
 
@@ -42,10 +42,7 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
-      stroke(1);
-      fill(0, 0, 255);
-      ellipse(x + 225, 590, 15, 15);
-      triangle(x + 200, 650, x + 225, 600, x + 250, 650);
+      image(persoDia, x + 225, 590, largura, altura);
 
       //personagem muda se para a casa do amigo
     } else if (personmove == 3) {
@@ -57,8 +54,9 @@ class Personagem {
 
       stroke(1);
       fill(0, 0, 255);
-      ellipse(x + 125, 590, 15, 15);
-      triangle(x + 100, 650, x + 125, 600, x + 150, 650);
+      image(persoDia, x + 100, 590, largura, altura);
+
+
 
       if (!collision) {
         x += 2;
@@ -114,10 +112,7 @@ class Personagem {
         float x = centerX1 + cos(angle) * radius1;
         float y = centerY1 + sin(angle) * radius1;
 
-        stroke(1);
-        fill(227, 190, 210);
-        ellipse(x, y + 170, 15, 15);
-        triangle(x - 25, y + 230, x, y + 180, x + 25, y + 230);
+        image(persoDia, x, y + 170, largura, altura);
       }
 
       // Segundo círculo com 3 personagens
@@ -126,16 +121,13 @@ class Personagem {
         float x = centerX2 + cos(angle) * radius2;
         float y = centerY2 + sin(angle) * radius2;
 
-        stroke(1);
-        fill(227, 190, 210);
-        ellipse(x, y + 170, 15, 15);
-        triangle(x - 25, y + 230, x, y + 180, x + 25, y + 230);
+
+        image(persoDia, x, y + 170, largura, altura);
       }
       x = -300;
     }
-    stroke(1);
-    fill(227, 190, 210);
-    ellipse(x + 25, 590, 15, 15);
-    triangle(x, 650, x + 25, 600, x + 50, 650);
+
+    image(persoDia, x + 25, 590, largura, altura);
+
   }
 }

@@ -7,22 +7,42 @@ String nomePastaOutput;
 int cenarioRandom;
 
 PImage chaodia, chaomadrug, chaonoite, chaopor;
+PImage carrinhaNoite, carrinhaMadrug, carrinhaDia, carrinhaPor;
+PImage trasNoite, trasMadrug, trasDia;
+PImage catoNoite, catoDia;
+PImage persoDia, persoNoite, persoMadrug;
 //PShape chao, sombra;
 
 void setup() {
   size(1280, 720);
-  
+
   /*chao = loadShape("dunas.svg");
-  sombra = loadShape("sombra.svg");*/
+   sombra = loadShape("sombra.svg");*/
+
+  chaodia = loadImage("chaodia.png");
+  chaomadrug = loadImage("chaomadrugada.png");
+  chaonoite = loadImage("chaonoite.png");
+  chaopor = loadImage("chaodia.png");
+
+  carrinhaNoite = loadImage("carrinhanoite.png");
+  carrinhaMadrug = loadImage("carrinhamadrugada.png");
+  carrinhaDia = loadImage("carrinhadia.png");
+  carrinhaPor = loadImage("carrinhapor.png");
+
+  trasNoite = loadImage("trasnoite.png");
+  trasMadrug = loadImage("trasmadrug.png");
+  trasDia = loadImage("trasdia.png");
   
-  chaodia = loadImage("chaodia.svg");
-  chaomadrug = loadImage("chaomadrugada.svg");
-  chaonoite = loadImage("chaonoite.svg");
-  chaopor = loadImage("chaopordosol.svg");
+  catoNoite = loadImage("catonoite.png");
+  catoDia = loadImage("catodia.png");
+  
+  persoDia = loadImage("persoDia.png");
+  persoNoite = loadImage("persoNoite.png");
+  persoMadrug = loadImage("persoMadru.png");
 
-  frameRate(30);
+    //frameRate(30);
 
-  cenarioRandom = int(random(1, 4));
+    cenarioRandom = int(random(1, 4));
   print(cenarioRandom);
 
   int startDirection = int(random(1, 3));

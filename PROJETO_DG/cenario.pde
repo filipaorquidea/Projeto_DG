@@ -2,9 +2,7 @@ class Cenario {
   float circleX;
   int circleSize = 50;
   int circleDirection;
-  int solColor;
-  int ceuColor;
-  int chaoColor;
+  int solColor, ceuColor, chaoColor;
 
   Cenario(int startDirection) {
     noFill();
@@ -72,11 +70,11 @@ class Cenario {
       c1 = color(106, 136, 171);
       c2 = color(191, 183, 203);
     } else {
-      return; // Se ceuColor não for 1, 2, 3 ou 4, não faz nada
+      return;
     }
 
-    for (int y = 0; y <= height / 2; y++) {
-      float inter = map(y, 0, height / 2, 0, 1);
+    for (int y = 0; y <= height; y++) {
+      float inter = map(y, 0, height, 0, 1);
       color c = lerpColor(c1, c2, inter);
       noFill();
       stroke(c);
@@ -106,16 +104,16 @@ class Cenario {
   void desenhaChao() {
     if (chaoColor == 1) {
       //noite
-      image (chaonoite, 0, 300);
+      image (chaonoite, 0, height-(height-200), width, height-200);
     } else if (chaoColor == 2) {
       //madrugada
-      image (chaomadrug, 0, 300);
+      image (chaomadrug, 0, height-(height-200), width, height-200);
     } else if (chaoColor == 3) {
       //dia
-      image (chaodia, 0, 300);
+      image (chaodia, 0, height-(height-200), width, height-200);
     } else if (chaoColor == 4) {
       //por do sol
-      image (chaopor, 0, 300);
+      image (chaopor, 0, height-(height-200), width, height-200);
     }
 
 
@@ -143,42 +141,63 @@ class Cenario {
   }
 
   void desenhaCacto() {
-    fill(17, 137, 25);
-    pushMatrix();
-    ellipse(165, 250, 30, 60);
-    rect(150, 250, 30, 50);
-    translate(350, 0);
-    ellipse(165, 250, 30, 60);
-    rect(150, 250, 30, 50);
-    translate(550, 0);
-    ellipse(165, 250, 30, 60);
-    rect(150, 250, 30, 50);
-    popMatrix();
+    int altura = 140;
+    int largura = 80;
 
-    pushMatrix();
-    translate(-130, 190);
-    rotate(-PI / 4);
-    ellipse(135, 250, 10, 30);
-    rect(130, 250, 10, 30);
-    translate(250, 240);
-    ellipse(135, 250, 10, 30);
-    rect(130, 250, 10, 30);
-    translate(390, 390);
-    ellipse(135, 250, 10, 30);
-    rect(130, 250, 10, 30);
-    popMatrix();
+    if (chaoColor == 1) {
+      //noite
+      image (catoNoite, width/25, height/1.7, largura, altura);
+      image (catoNoite, width-(width/25 + largura), height/1.3, largura, altura);
+    } else if (chaoColor == 2) {
+      //madrugada
+      image (catoDia, width/25, height/1.7, largura, altura);
+      image (catoDia, width-(width/25 + largura), height/1.3, largura, altura);
+    } else if (chaoColor == 3) {
+      //dia
+      image (catoDia, width/25, height/1.7, largura, altura);
+      image (catoDia, width-(width/25 + largura), height/1.3, largura, altura);
+    } else if (chaoColor == 4) {
+      //por do sol
+      image (catoDia, width/25, height/1.7, largura, altura);
+      image (catoDia, width-(width/25 + largura), height/1.3, largura, altura);
+    }
 
-    pushMatrix();
-    translate(235, -55);
-    rotate(PI / 4);
-    ellipse(185, 250, 10, 30);
-    rect(180, 250, 10, 30);
-    translate(240, -250);
-    ellipse(185, 250, 10, 30);
-    rect(180, 250, 10, 30);
-    translate(390, -400);
-    ellipse(185, 250, 10, 30);
-    rect(180, 250, 10, 30);
-    popMatrix();
+    /*fill(17, 137, 25);
+     pushMatrix();
+     ellipse(165, 250, 30, 60);
+     rect(150, 250, 30, 50);
+     translate(350, 0);
+     ellipse(165, 250, 30, 60);
+     rect(150, 250, 30, 50);
+     translate(550, 0);
+     ellipse(165, 250, 30, 60);
+     rect(150, 250, 30, 50);
+     popMatrix();
+     
+     pushMatrix();
+     translate(-130, 190);
+     rotate(-PI / 4);
+     ellipse(135, 250, 10, 30);
+     rect(130, 250, 10, 30);
+     translate(250, 240);
+     ellipse(135, 250, 10, 30);
+     rect(130, 250, 10, 30);
+     translate(390, 390);
+     ellipse(135, 250, 10, 30);
+     rect(130, 250, 10, 30);
+     popMatrix();
+     
+     pushMatrix();
+     translate(235, -55);
+     rotate(PI / 4);
+     ellipse(185, 250, 10, 30);
+     rect(180, 250, 10, 30);
+     translate(240, -250);
+     ellipse(185, 250, 10, 30);
+     rect(180, 250, 10, 30);
+     translate(390, -400);
+     ellipse(185, 250, 10, 30);
+     rect(180, 250, 10, 30);
+     popMatrix();*/
   }
 }
