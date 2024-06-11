@@ -18,7 +18,7 @@ class Carrinha {
   void carregarcarrinha() {
 
     rectY = height - 100;
-    rectSize = 100;
+    rectSize = 300;
 
     //sem isto o rect da direita para a esquerda comeca na esquerda e nao direita
     if (rectDirection == 2) {
@@ -83,12 +83,12 @@ class Carrinha {
       
       //comunidade de carrinhas
     } else if (rectDirection == 4) {
-      rectX = width/2 - 100;
-      for (int i = 0; i < 7; i++) {
-        vanX = (frameCount + i * 180) % width;
+      
+      for (int i = 0; i < 4; i++) {
+        vanX = (frameCount + i * 320) % width;
         vanY = height - 240;
         fill(150);
-        image(carrinhaCor, vanX, vanY, 100, 50);
+        image(carrinhaCor, vanX, vanY, rectSize, rectSize/2);
         fill(0);
       }
       //ainda nao sei

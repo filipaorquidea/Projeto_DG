@@ -124,19 +124,19 @@ class Cenario {
     if (chaoColor == 1) {
       //noite
       image (catoNoite, width/25, height/1.7, largura, altura);
-      image (catoNoite, width-(width/25 + largura), height/1.3, largura + 40, altura + 40);
+      image (catoNoite, width-(width/25 + largura), height/2, largura, altura);
     } else if (chaoColor == 2) {
       //madrugada
       image (catoDia, width/25, height/1.7, largura, altura);
-      image (catoDia, width-(width/25 + largura), height/1.3, largura + 40, altura + 40);
+      image (catoDia, width-(width/25 + largura), height/2, largura, altura);
     } else if (chaoColor == 3) {
       //dia
       image (catoDia, width/25, height/1.7, largura, altura);
-      image (catoDia, width-(width/25 + largura), height/1.3, largura + 40, altura + 40);
+      image (catoDia, width-(width/25 + largura), height/2, largura, altura);
     } else if (chaoColor == 4) {
       //por do sol
       image (catoDia, width/25, height/1.7, largura, altura);
-      image (catoDia, width-(width/25 + largura), height/1.3, largura + 40, altura + 40);
+      image (catoDia, width-(width/25 + largura), height/2, largura, altura);
     }
   }
 }

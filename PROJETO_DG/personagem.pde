@@ -42,6 +42,7 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
+      filter(0, 100);
       image(persoDia, 150, 550, largura, altura);
 
       //personagem muda se para a casa do amigo
