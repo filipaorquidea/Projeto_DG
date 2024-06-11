@@ -74,7 +74,7 @@ class Cenario {
     }
 
     for (int y = 0; y <= height; y++) {
-      float inter = map(y, 0, height, 0, 1);
+      float inter = map(y, 0, height/2, 0, 1);
       color c = lerpColor(c1, c2, inter);
       noFill();
       stroke(c);

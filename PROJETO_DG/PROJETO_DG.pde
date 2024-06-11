@@ -22,7 +22,7 @@ void setup() {
   chaodia = loadImage("chaodia.png");
   chaomadrug = loadImage("chaomadrugada.png");
   chaonoite = loadImage("chaonoite.png");
-  chaopor = loadImage("chaodia.png");
+  chaopor = loadImage("chaopordosol.png");
 
   carrinhaNoite = loadImage("carrinhanoite.png");
   carrinhaMadrug = loadImage("carrinhamadrugada.png");
@@ -47,7 +47,7 @@ void setup() {
 
     //frameRate(30);
 
-  cenarioRandom = int(random(1, 4));
+  cenarioRandom = int(random(1, 5));
   print(cenarioRandom);
 
   int startDirection = int(random(1, 3));
