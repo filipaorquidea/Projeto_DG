@@ -14,6 +14,9 @@ class Personagem {
   float oscillationSpeed = 0.2;
   float oscillationAmplitude = 2;
 
+  int horario = cenarioRandom;
+  PImage pessoa;
+
   Personagem(int startX) {
     personmove = startX;
     x2 = width + size / 2;
@@ -21,9 +24,21 @@ class Personagem {
 
   void update() {
     //a personagem encontra se com a amiga
+
+    if (horario == 1) {
+      pessoa = persoNoite;
+    } else if (horario == 2) {
+      pessoa = persoMadrug;
+    } else if (horario == 3) {
+      pessoa = persoDia;
+    } else if (horario == 4) {
+      pessoa = persoMadrug;
+    }
+
+
     if (personmove == 1) {
 
-      image(persoDia, x2, 550, largura, altura);
+      image(pessoa, x2, 550, largura, altura);
       if (!collision) {
         x += 2;
 
@@ -47,8 +62,8 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
-      filter(0, 100);
-      image(persoDia, 150, 550, largura, altura);
+    
+      image(pessoa, 150, 550, largura, altura);
 
       //personagem muda se para a casa do amigo
     } else if (personmove == 3) {
@@ -60,7 +75,7 @@ class Personagem {
 
       stroke(1);
       fill(0, 0, 255);
-      image(persoDia, x + 100, 550, largura, altura);
+      image(pessoa, x + 100, 550, largura, altura);
 
 
 
@@ -79,9 +94,9 @@ class Personagem {
       rect(200, 500, 200, 150);
 
 
-      image(persoDia, 210, 550, largura, altura);
+      image(pessoa, 210, 550, largura, altura);
 
-      image(persoDia, 240, 550, largura, altura);
+      image(pessoa, 240, 550, largura, altura);
 
       if (!collision) {
         if (!started) {
@@ -103,10 +118,10 @@ class Personagem {
       float radius2 = 50;
 
       float centerX1 = width / 3;
-      float centerY1 = height / 2;
+      float centerY1 = 700;
 
       float centerX2 = 2 * width / 3;
-      float centerY2 = height / 2;
+      float centerY2 = 700;
 
       angleOffsets1 = new float[numCharacters1];
       angleOffsets2 = new float[numCharacters2];
@@ -128,7 +143,7 @@ class Personagem {
         y += sin(angleOffsets2[i]) * oscillationAmplitude;
         angleOffsets1[i] += oscillationSpeed;
 
-        image(persoDia, x, y + 180, largura, altura);
+        image(pessoa, x, y + 180, largura, altura);
       }
 
       // Segundo círculo com 3 personagens
@@ -142,11 +157,11 @@ class Personagem {
         y += sin(angleOffsets2[i]) * oscillationAmplitude;
         angleOffsets1[i] += oscillationSpeed;
 
-        image(persoDia, x, y + 180, largura, altura);
+        image(pessoa, x, y + 180, largura, altura);
       }
       x = -300;
     }
 
-    image(persoDia, x + 25, 550, largura, altura);
+    image(pessoa, x + 25, 550, largura, altura);
   }
 }
