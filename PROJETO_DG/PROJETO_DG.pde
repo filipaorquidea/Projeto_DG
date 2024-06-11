@@ -50,7 +50,7 @@ void setup() {
   cenarioRandom = int(random(1, 5));
   print(cenarioRandom);
 
-  int startDirection = int(random(1, 3));
+  int startDirection = int(random(1, 2));
   cenario = new Cenario(startDirection);
 
   int rectMove = int(random(1, 6));

@@ -91,7 +91,6 @@ class Carrinha {
         image(carrinhaCor, vanX, vanY, rectSize, rectSize/2);
         fill(0);
       }
-      //ainda nao sei
     } else if (rectDirection == 5) {
       rectX = width/2 - 100;
       rectY = height - 240;

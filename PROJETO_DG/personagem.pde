@@ -81,7 +81,7 @@ class Personagem {
         }
       }
 
-      //personagem com o amigo mas nao faz nada ainda
+      
     } else if (personmove == 2) {
 
       image(pessoa, 150, 550, largura, altura);
