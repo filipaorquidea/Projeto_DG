@@ -9,6 +9,11 @@ class Personagem {
   int largura = 20;
   int altura = 100;
 
+  float[] angleOffsets1;
+  float[] angleOffsets2;
+  float oscillationSpeed = 0.2;
+  float oscillationAmplitude = 2;
+
   Personagem(int startX) {
     personmove = startX;
     x2 = width + size / 2;
@@ -103,11 +108,25 @@ class Personagem {
       float centerX2 = 2 * width / 3;
       float centerY2 = height / 2;
 
+      angleOffsets1 = new float[numCharacters1];
+      angleOffsets2 = new float[numCharacters2];
+      for (int i = 0; i < numCharacters1; i++) {
+        angleOffsets1[i] = random(TWO_PI);
+      }
+      for (int i = 0; i < numCharacters2; i++) {
+        angleOffsets2[i] = random(TWO_PI);
+      }
+
       // Primeiro círculo com 4 personagens
       for (int i = 0; i < numCharacters1; i++) {
         float angle = TWO_PI / numCharacters1 * i;
         float x = centerX1 + cos(angle) * radius1;
         float y = centerY1 + sin(angle) * radius1;
+
+        // Adiciona movimento
+        x += cos(angleOffsets2[i]) * oscillationAmplitude;
+        y += sin(angleOffsets2[i]) * oscillationAmplitude;
+        angleOffsets1[i] += oscillationSpeed;
 
         image(persoDia, x, y + 180, largura, altura);
       }
@@ -118,6 +137,10 @@ class Personagem {
         float x = centerX2 + cos(angle) * radius2;
         float y = centerY2 + sin(angle) * radius2;
 
+        // Adiciona movimento
+        x += cos(angleOffsets2[i]) * oscillationAmplitude;
+        y += sin(angleOffsets2[i]) * oscillationAmplitude;
+        angleOffsets1[i] += oscillationSpeed;
 
         image(persoDia, x, y + 180, largura, altura);
       }
