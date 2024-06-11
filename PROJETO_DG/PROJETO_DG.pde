@@ -7,6 +7,7 @@ int cenarioRandom;
 
 PImage chaodia, chaomadrug, chaonoite, chaopor;
 PImage carrinhaNoite, carrinhaMadrug, carrinhaDia, carrinhaPor;
+PImage carrinhaNoiteInv, carrinhaMadrugInv, carrinhaDiaInv, carrinhaPorInv; 
 PImage trasNoite, trasMadrug, trasDia;
 PImage catoNoite, catoDia;
 PImage persoDia, persoNoite, persoMadrug;
@@ -27,6 +28,11 @@ void setup() {
   carrinhaMadrug = loadImage("carrinhamadrugada.png");
   carrinhaDia = loadImage("carrinhadia.png");
   carrinhaPor = loadImage("carrinhapor.png");
+  
+  carrinhaNoiteInv = loadImage("carrinhanoiteinv.png");
+  carrinhaMadrugInv = loadImage("carrinhamadrugadainv.png");
+  carrinhaDiaInv = loadImage("carrinhadiainv.png");
+  carrinhaPorInv = loadImage("carrinhaporinv.png");
 
   trasNoite = loadImage("trasnoite.png");
   trasMadrug = loadImage("trasmadrug.png");

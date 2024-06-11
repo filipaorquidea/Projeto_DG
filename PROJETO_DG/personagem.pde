@@ -42,7 +42,7 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
-      image(persoDia, 225, 550, largura, altura);
+      image(persoDia, 150, 550, largura, altura);
 
       //personagem muda se para a casa do amigo
     } else if (personmove == 3) {

@@ -8,7 +8,7 @@ class Carrinha {
   int vanY, vanX;
 
   int horario = cenarioRandom;
-  PImage carrinhaCor, trasCor;
+  PImage carrinhaCor, carrinhaCorInv, trasCor;
 
   Carrinha(int rectMove) {
     rectDirection = rectMove;
@@ -34,15 +34,19 @@ class Carrinha {
 
     if (horario == 1) {
       carrinhaCor = carrinhaNoite;
+      carrinhaCorInv = carrinhaNoiteInv;
       trasCor = trasNoite;
     } else if (horario == 2) {
       carrinhaCor = carrinhaMadrug;
+      carrinhaCorInv = carrinhaMadrugInv;
       trasCor = trasMadrug;
     } else if (horario == 3) {
       carrinhaCor = carrinhaDia;
+      carrinhaCorInv = carrinhaDiaInv;
       trasCor = trasDia;
     } else if (horario == 4) {
       carrinhaCor = carrinhaPor;
+      carrinhaCorInv = carrinhaPorInv;
       trasCor = trasMadrug;
     }
 
@@ -71,13 +75,12 @@ class Carrinha {
     } else if (rectDirection == 3) {
       rectY = height - 240;
       rectX -= 3;
-      image(carrinhaCor, rectX, rectY, rectSize, rectSize/2);
+      image(carrinhaCorInv, rectX, rectY, rectSize, rectSize/2);
 
       if (rectX + rectSize / 2 <= 0) {
         rectX = width + rectSize / 2;
       }
-
-
+      
       //comunidade de carrinhas
     } else if (rectDirection == 4) {
       rectX = width/2 - 100;
@@ -91,6 +94,8 @@ class Carrinha {
       //ainda nao sei
     } else if (rectDirection == 5) {
       rectX = width/2 - 100;
+      rectY = height - 240;
+      image(carrinhaCor, rectX, rectY, rectSize, rectSize/2);
     }
   }
 }
