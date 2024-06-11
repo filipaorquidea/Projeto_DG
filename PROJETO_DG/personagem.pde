@@ -16,6 +16,7 @@ class Personagem {
 
   int horario = cenarioRandom;
   PImage pessoa;
+  color corEscura, corFundo;
 
   Personagem(int startX) {
     personmove = startX;
@@ -27,12 +28,20 @@ class Personagem {
 
     if (horario == 1) {
       pessoa = persoNoite;
+      corEscura = color(94, 78, 73);
+      corFundo = color(123, 109, 106);
     } else if (horario == 2) {
       pessoa = persoMadrug;
+      corEscura = color(158, 131, 121);
+      corFundo = color(232, 205, 195);
     } else if (horario == 3) {
       pessoa = persoDia;
+      corEscura = color(209, 173, 161);
+      corFundo = color(247, 219, 210);
     } else if (horario == 4) {
       pessoa = persoMadrug;
+      corEscura = color(158, 131, 121);
+      corFundo = color(232, 205, 195);
     }
 
 
@@ -62,19 +71,43 @@ class Personagem {
       //personagem com o amigo mas nao faz nada ainda
     } else if (personmove == 2) {
 
-    
+
       image(pessoa, 150, 550, largura, altura);
 
       //personagem muda se para a casa do amigo
     } else if (personmove == 3) {
+      int xCasa = 800;
+      int yCasa = 450;
+      int largCasa = 220;
+      int altCasa = 185;
 
-      fill(255, 0, 0);
-      triangle(780, 500, 900, 400, 1020, 500);
-      fill(200);
-      rect(800, 500, 200, 150);
+      //telhado
+      fill(corEscura);
+      beginShape();
+      vertex(xCasa - 20, yCasa);
+      vertex(xCasa + largCasa + 20, yCasa);
+      vertex(xCasa + (largCasa/2), yCasa - (altCasa/2) - 10);
+      endShape(CLOSE);
 
-      stroke(1);
-      fill(0, 0, 255);
+
+      //casa
+      fill(corFundo);
+      beginShape ();
+      vertex(xCasa, yCasa);
+      vertex(xCasa, yCasa + altCasa);
+      vertex(xCasa + largCasa, yCasa + altCasa);
+      vertex(xCasa + largCasa, yCasa);
+      vertex(xCasa + (largCasa/2), yCasa - (altCasa/2));
+      endShape(CLOSE);
+
+
+      //janelas e porta
+      fill(corEscura);
+      rect(xCasa + 30, yCasa + 15, 30, 40);
+      rect(xCasa + 100, yCasa + 15, 30, 40);
+      rect(xCasa + 170, yCasa + 15, 30, 40);
+      rect(xCasa + largCasa/2 - 40, yCasa + (altCasa-98), 40, 98);
+
       image(pessoa, x + 100, 550, largura, altura);
 
 
@@ -88,10 +121,36 @@ class Personagem {
 
       //personagem visita irma
     } else if (personmove == 4) {
-      fill(255, 0, 0);
-      triangle(180, 500, 300, 400, 420, 500);
-      fill(200);
-      rect(200, 500, 200, 150);
+      int xCasa = 180;
+      int yCasa = 450;
+      int largCasa = 220;
+      int altCasa = 185;
+
+      //telhado
+      fill(corEscura);
+      beginShape();
+      vertex(xCasa - 20, yCasa);
+      vertex(xCasa + largCasa + 20, yCasa);
+      vertex(xCasa + (largCasa/2), yCasa - (altCasa/2) - 10);
+      endShape(CLOSE);
+
+      //casa
+      fill(corFundo);
+      beginShape ();
+      vertex(xCasa, yCasa);
+      vertex(xCasa, yCasa + altCasa);
+      vertex(xCasa + largCasa, yCasa + altCasa);
+      vertex(xCasa + largCasa, yCasa);
+      vertex(xCasa + (largCasa/2), yCasa - (altCasa/2));
+      endShape(CLOSE);
+
+      //casita meio feia
+      //janelas e porta
+      fill(corEscura);
+      rect(xCasa + 30, yCasa + 15, 30, 40);
+      rect(xCasa + 100, yCasa + 15, 30, 40);
+      rect(xCasa + 170, yCasa + 15, 30, 40);
+      rect(xCasa + largCasa/2 - 40, yCasa + (altCasa-98), 40, 98);
 
 
       image(pessoa, 210, 550, largura, altura);
